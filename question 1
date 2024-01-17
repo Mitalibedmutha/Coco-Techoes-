@@ -1,0 +1,14 @@
+import random
+num_employees = 100
+num_months = 12
+employee_data ={}
+for i in range(1, num_employees + 1):
+    employee_name = f"Employee{i}"
+    commissions = [random.randint(1000, 5000) 
+                   for i in range(num_months)]
+    employee_data[employee_name] = commissions
+average_commissions = {employee: sum(commissions)/ num_months for employee, commissions in employee_data.items()}
+top_5_employee= sorted(average_commissions.items())[:5]
+print("Top 5 Employees with the Highest Average Commission:")
+for rank, (employee, average) in enumerate(top_5_employee, start=1):
+    print(f"{rank}. {employee}: {average:}")
